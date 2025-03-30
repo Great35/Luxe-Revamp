@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading...</title>
+    <style>
+        body {
+            background-color: #043823; /* Dark green background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .loading-container {
+            text-align: center;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        .loading-container img {
+            width: 150px;
+            height: auto;
+            animation: heartbeat 1.5s infinite, glow 2s infinite alternate;
+            filter: brightness(0.8) contrast(1.2) opacity(0.9);
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+        }
+        .loading-text {
+            font-size: 20px;
+            margin-top: 10px;
+            color: #ffffff;
+            opacity: 0.8;
+            animation: fadeInText 2s ease-in-out infinite alternate;
+        }
+        .progress-bar {
+            width: 100px;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            margin: 10px auto;
+            overflow: hidden;
+            position: relative;
+        }
+        .progress-bar::before {
+            content: "";
+            position: absolute;
+            width: 30%;
+            height: 100%;
+            background: white;
+            border-radius: 10px;
+            animation: progress 2s linear infinite;
+        }
+        
+        /* Animations */
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            25%, 75% { transform: scale(1.1); }
+        }
+        @keyframes glow {
+            0% { box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); }
+            100% { box-shadow: 0 0 30px rgba(255, 255, 255, 0.3); }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInText {
+            from { opacity: 0.5; }
+            to { opacity: 1; }
+        }
+        @keyframes progress {
+            0% { left: -30%; }
+            100% { left: 100%; }
+        }
+    </style>
+    <script>
+        setTimeout(function() {
+            window.location.href = "home.html"; // Redirect to the main page
+        }, 5000);
+    </script>
+</head>
+<body>
+    <div class="loading-container">
+        <img src="img/WhatsApp Image 2025-03-30 at 11.01.29 AM.jpeg" alt="Loading...">
+        <p class="loading-text">Welcome...</p>
+        <div class="progress-bar"></div> <!-- Progress indicator -->
+    </div>
+</body>
+</html>
